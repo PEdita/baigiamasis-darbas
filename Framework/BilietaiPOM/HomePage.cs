@@ -22,6 +22,15 @@ namespace Framework.BilietaiPOM
         private static string apmoketiButtonLocator = "//*[contains(text(), 'Apmokėti')]";
         private static string elementTextLocator = "//*[contains(text(), '(1)')]";
 
+        private static string elementLocator = "(//*[@class='lang_select_current'])[1]";
+        private static string inEnglishOptionLocator = "(//*[@title='In English'])[1]";
+        private static string selectedTextLocator = "//*[@class='content_module_heading' and contains (text(), 'Recommended')]";
+        
+        private static string pasirinkitePeriodaButtonLocator = "(//*[@class='date_search_button'])[1]";
+        private static string artejantisSavaitgalisRadioButtonLocator = "//*[text()='Artėjantis savaitgalis']";
+        private static string rodytiRenginiusButtonLocator = "//*[@class='date_search_popup_button button']";
+        private static string dateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_from']";
+
         public static void Open()
         {
             Driver.OpenPage(url);
@@ -86,5 +95,44 @@ namespace Framework.BilietaiPOM
             Common.WaitForElementToBeVisible(elementTextLocator);
             return Common.GetElementText(elementTextLocator);
         }
+
+        //SearchByDate Test methods
+        public static void ClickPasirinkitePeriodaButton()
+        {
+            Common.ClickElement(pasirinkitePeriodaButtonLocator);
+        }
+
+        public static void ClickArtejantisSavaitgalisRadioButton()
+        {
+            Common.ClickElement(artejantisSavaitgalisRadioButtonLocator);
+        }
+
+        public static void ClickRodytiRenginiusOption()
+        {
+            Common.ClickElement(rodytiRenginiusButtonLocator);
+        }
+
+        public static string GetSelectedDate()
+        {
+            return Common.GetElementText(dateLocator);
+        }
+
+        //ChangeTheLanguageToEnglish test methods
+        public static void HoverTheMouseOverTheWordLietuviskai()
+        {
+            Common.HoverTheMouseOverTheElement(elementLocator);
+        }
+
+        public static void ClickTheOptionInEnglish()
+        {
+            Common.WaitForElementToBeVisible(elementLocator);
+            Common.ClickElement(inEnglishOptionLocator);
+        }
+
+        public static string GetTheSelectedText()
+        {
+            return Common.GetElementText(selectedTextLocator);
+        }
+
     }
 }

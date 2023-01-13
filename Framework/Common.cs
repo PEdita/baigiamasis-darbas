@@ -45,5 +45,14 @@ namespace Framework
         {
             return GetElement(locator).Text;
         }
+
+        internal static void HoverTheMouseOverTheElement(string locator)
+        {
+            IWebElement element = GetElement(locator);
+            Actions actions = new Actions(Driver.GetDriver());
+
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
     }
 }
