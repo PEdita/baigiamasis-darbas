@@ -57,9 +57,11 @@ namespace Tests
             HomePage.ClickPasirinkitePeriodaButton();
             HomePage.ClickArtejantisSavaitgalisRadioButton();
             HomePage.ClickRodytiRenginiusOption();
-            string response = HomePage.GetSelectedDate();
+            string responseNuo = HomePage.GetSelectedDate();
+            string responseIki = HomePage.GetSecondSelectedDate();
 
-            Assert.IsTrue(response.Contains("21.01.2023"));
+            Assert.IsTrue(responseNuo.Contains("21.01.2023"));
+            Assert.IsTrue(responseIki.Contains("22.01.2023"));
         }
 
         [Test]

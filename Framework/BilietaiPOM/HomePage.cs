@@ -32,7 +32,7 @@ namespace Framework.BilietaiPOM
         private static string artejantisSavaitgalisRadioButtonLocator = "//*[text()='Artėjantis savaitgalis']";
         private static string rodytiRenginiusButtonLocator = "//*[@class='date_search_popup_button button']";
         private static string dateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_from']";
-        private static string textLocator = "//*[@class='searchresult_foundword']";
+        private static string secondDateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_to']";
 
         public static void Open()
         {
@@ -124,6 +124,10 @@ namespace Framework.BilietaiPOM
         public static string GetSelectedDate()
         {
             return Common.GetElementText(dateLocator);
+        }
+        public static string GetSecondSelectedDate()
+        {
+            return Common.GetElementText(secondDateLocator);
         }
 
         //ChangeTheLanguageToEnglish test methods
