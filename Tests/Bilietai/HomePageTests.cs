@@ -16,7 +16,8 @@ namespace Tests
             HomePage.Open();
             HomePage.WaitTheCookieTableAppears();
             HomePage.ClickLeistiVisusSlapukusButton();
-            System.Threading.Thread.Sleep(5000);
+            HomePage.WaitTheGalleryAppears();
+            //System.Threading.Thread.Sleep(5000);
         }
 
         [Test]
@@ -59,6 +60,21 @@ namespace Tests
             string response = HomePage.GetSelectedDate();
 
             Assert.IsTrue(response.Contains("21.01.2023"));
+        }
+
+        [Test]
+        public void SearchByWord()
+        {
+            string expectedWord = "spektaklis";
+
+            HomePage.EnterText(expectedWord);
+
+            List<string> actualWord = HomePage.GetResultsOfSearchWord();
+
+            foreach (string word in actualWord)
+            {
+                Assert.AreEqual(expectedWord, word);
+            }
         }
     }
 }

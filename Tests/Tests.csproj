@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseTest.cs" />
+    <Compile Include="Bilietai\DovanuCekiaiTests.cs" />
     <Compile Include="Bilietai\HomePageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

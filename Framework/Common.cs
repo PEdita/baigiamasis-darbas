@@ -54,5 +54,21 @@ namespace Framework
             actions.MoveToElement(element);
             actions.Perform();
         }
+
+        private static List<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
+        internal static List<string> GetElementsTextToList(string locator)
+        {
+            List<string> list = new List<string>();
+            List<IWebElement> elements = GetElements(locator);
+            foreach (IWebElement element in elements)
+            {
+                list.Add(element.Text);
+            }
+            return list;
+        }
     }
 }

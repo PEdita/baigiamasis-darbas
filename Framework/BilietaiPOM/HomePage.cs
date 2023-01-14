@@ -12,6 +12,8 @@ namespace Framework.BilietaiPOM
         private static string url = "https://www.bilietai.lt/lit/";
         private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
+        private static string galleryLocator = "//*[@class='gallery_description']";
+        
         private static string ticketNameLocator = "//span[contains(text(),'Sisters') and not(contains(@class,'mobile'))]";
         private static string pirktiBilietaButtonLocator = "(//span[contains(text(),'Pirkti bilietą')])[1]";
         private static string stovimasParterisOptionLocator = "//*[contains(text(),'Stovimas parteris')]";
@@ -25,11 +27,12 @@ namespace Framework.BilietaiPOM
         private static string elementLocator = "(//*[@class='lang_select_current'])[1]";
         private static string inEnglishOptionLocator = "(//*[@title='In English'])[1]";
         private static string selectedTextLocator = "//*[@class='content_module_heading' and contains (text(), 'Recommended')]";
-        
+
         private static string pasirinkitePeriodaButtonLocator = "(//*[@class='date_search_button'])[1]";
         private static string artejantisSavaitgalisRadioButtonLocator = "//*[text()='Artėjantis savaitgalis']";
         private static string rodytiRenginiusButtonLocator = "//*[@class='date_search_popup_button button']";
         private static string dateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_from']";
+        private static string textLocator = "//*[@class='searchresult_foundword']";
 
         public static void Open()
         {
@@ -46,6 +49,12 @@ namespace Framework.BilietaiPOM
             Common.ClickElement(leistiVisusSlapukusButtonLocator);
         }
 
+        public static void WaitTheGalleryAppears()
+        {
+            Common.WaitForElementToBeVisible(galleryLocator);
+        }
+
+        //AddATicketToTheCart test methods
         public static void ClickOnTheTicketName()
         {
             Common.ClickElement(ticketNameLocator);
@@ -134,5 +143,15 @@ namespace Framework.BilietaiPOM
             return Common.GetElementText(selectedTextLocator);
         }
 
+        //SearchByWord test methods
+        public static void EnterText(string expectedText)
+        {
+            Common.SendKeysToElement("//*[@name='search']", expectedText);
+        }
+
+        public static List<string> GetResultsOfSearchWord()
+        {
+            return Common.GetElementsTextToList("//*[@class='searchresult_foundword']");
+        }
     }
 }
