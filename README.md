@@ -1,1 +1,34 @@
-# Baigiamasis darbas
+﻿# Baigiamasis darbas "Bilietai.lt"
+*A link to the page https://www.bilietai.lt/lit/*
+- ## TS1. Basket functionality
+  - ### TC1. Add a ticket to the cart
+     - Click on the ticket name “Sisters On Wire | 04.14 | ŽALGIRIO ARENA”
+     - Click “Pirkti bilietą” button
+     - Click “Stovimas parteris” option
+     - Click plus button
+	 - Click “Tinka” button
+	 - Click the next one that appears “Tinka” button
+	 - Enter a valid email address in the email box
+	 - Click “Apmokėti” button
+     - _**Expected Result:**_ Number “1” is next to the inscription “Pirkinių krepšelis“
+- ## TS2. Language change
+  - ### TC1. Change the language to English
+    - Hover the mouse over the word “Lietuviškai“
+    - Click the option “In English“
+    - _**Expected Result:**_ Changed text to “Recommended”
+- ## TS3. Search functionality
+  - ### TC1. Search by date
+    - Click on the button “Pasirinkite periodą”
+    - Click the option “Artėjantis savaitgalis“
+    - Click the button “Rodyti renginius”
+    - _**Expected Result:**_ Date From is “21.01.2023” and Until is “22.01.2023”
+  - ### TC2. Search by word
+    - Click on the search input box
+	- Enter text “spektaklis”
+    - _**Expected Result:**_ The first choice contains the word “spektaklis”
+- ## TS4. Gift cards sorting
+  - ### TC1. Gift cards sorting by name from A to Z
+    - Click on the “Data pagal didėjimo tvarką“ dropdown arrow
+	- Click the option “Pagal pavadinimą A-Ž”
+    - _**Expected Result:**_ The results are sorted from A to Z
+
