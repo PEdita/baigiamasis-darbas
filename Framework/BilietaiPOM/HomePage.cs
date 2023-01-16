@@ -12,6 +12,7 @@ namespace Framework.BilietaiPOM
         private static string url = "https://www.bilietai.lt/lit/";
         private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
+        private static string popUpBannerCloseLocator = "//*[@class='popupbanner_close']";
         private static string galleryLocator = "//*[@class='gallery_description']";
         
         private static string ticketNameLocator = "//span[contains(text(),'Sisters') and not(contains(@class,'mobile'))]";
@@ -33,7 +34,7 @@ namespace Framework.BilietaiPOM
         private static string rodytiRenginiusButtonLocator = "//*[@class='date_search_popup_button button']";
         private static string dateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_from']";
         private static string secondDateLocator = "//*[@class='concerts_filter_date_wrapper date_wrapper_to']";
-
+        
         public static void Open()
         {
             Driver.OpenPage(url);
@@ -47,6 +48,17 @@ namespace Framework.BilietaiPOM
         public static void ClickLeistiVisusSlapukusButton()
         {
             Common.ClickElement(leistiVisusSlapukusButtonLocator);
+        }
+
+        public static void WaitThePopUpBannerAppears()
+        {
+            Common.WaitForElementToBeClickable(popUpBannerCloseLocator);
+        }
+
+        public static void ClickPopUpBannerCloseButton()
+        {
+            System.Threading.Thread.Sleep(2000);
+            Common.ClickElement(popUpBannerCloseLocator);
         }
 
         public static void WaitTheGalleryAppears()

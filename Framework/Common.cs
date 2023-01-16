@@ -27,6 +27,7 @@ namespace Framework
         internal static void WaitForElementToBeClickable(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));
         }
 
