@@ -15,6 +15,7 @@ namespace Framework.BilietaiPOM
         private static string dataPagalDidejimoTvarkaDropdownArrowLocator = "//*[@class='dropdown_arrow']";
         private static string pagalPavadinimaAZOptionLocator = "//*[@class='dropdown_option' and contains(text(),'Pagal')]";
         private static string dovanuCekiaiTextLocator = "//*[@class='concertslist_pages']//*[@class='event_short_title']";
+        private static string spinerLocator = "//*[@class='content_modules']//*[@class='loader']";
 
         public static void Open()
         {
@@ -42,6 +43,7 @@ namespace Framework.BilietaiPOM
         {
             Common.WaitForElementToBeVisible(pagalPavadinimaAZOptionLocator);
             Common.ClickElement(pagalPavadinimaAZOptionLocator);
+            Common.WaitForElementToBeInvisible(spinerLocator);
         }
 
         public static List<string> GetDovanuCekiaiList()
