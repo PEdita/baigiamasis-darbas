@@ -21,7 +21,8 @@ namespace Framework
 
         public static void Initialize()
         {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
         }
 
         public static void CloseDriver()

@@ -16,7 +16,7 @@ namespace Tests
             HomePage.Open();
             HomePage.WaitTheCookieTableAppears();
             HomePage.ClickLeistiVisusSlapukusButton();
-            //HomePage.WaitTheGalleryAppears();
+            HomePage.WaitTheGalleryAppears();
         }
 
         [Test]

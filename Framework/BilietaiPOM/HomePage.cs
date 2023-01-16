@@ -62,6 +62,7 @@ namespace Framework.BilietaiPOM
 
         public static void ClickPirktiBilietaButton()
         {
+            Common.WaitForElementToBeClickable(pirktiBilietaButtonLocator);
             Common.ClickElement(pirktiBilietaButtonLocator);
         }
 
