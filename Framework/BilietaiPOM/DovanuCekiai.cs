@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Framework.BilietaiPOM
 {
@@ -35,6 +36,20 @@ namespace Framework.BilietaiPOM
         {
             Common.WaitForElementToBeVisible(dovanuCekiaiTextLocator);
             return Common.GetElementsTextToList(dovanuCekiaiTextLocator);
+        }
+
+        public static bool CheckIfDovanuCekiaiListIsAlphabetical()
+        {
+            List<string> actualResult = GetDovanuCekiaiList();
+
+            for (int i = 1; i < actualResult.Count; i++)
+            {
+                if (String.Compare(actualResult[i - 1], actualResult[i]) > 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

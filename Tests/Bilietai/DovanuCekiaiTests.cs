@@ -1,7 +1,5 @@
 ﻿using Framework.BilietaiPOM;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 
 namespace Tests.Bilietai
 {
@@ -18,12 +16,8 @@ namespace Tests.Bilietai
         {
             DovanuCekiai.ClickDataPagalDidejimoTvarkaDropdownArrow();
             DovanuCekiai.ClickPagalPavadinimaAZOption();
-            List<string> actualResult = DovanuCekiai.GetDovanuCekiaiList();
 
-            for (int i = 1; i < actualResult.Count; i++)
-            {
-                Assert.IsTrue(String.Compare(actualResult[i - 1], actualResult[i]) <= 0);
-            }
+            Assert.IsTrue(DovanuCekiai.CheckIfDovanuCekiaiListIsAlphabetical());
         }
     }
 }
