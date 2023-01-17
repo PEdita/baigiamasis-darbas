@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilietaiPOM\CommonBilietai.cs" />
     <Compile Include="BilietaiPOM\DovanuCekiai.cs" />
     <Compile Include="BilietaiPOM\HomePage.cs" />
     <Compile Include="Common.cs" />

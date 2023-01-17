@@ -5,8 +5,6 @@ namespace Framework.BilietaiPOM
     public class DovanuCekiai
     {
         private static string url = "https://www.bilietai.lt/lit/renginiai/dovanu-cekiai/";
-        private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
-        private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string dataPagalDidejimoTvarkaDropdownArrowLocator = "//*[@class='dropdown_arrow']";
         private static string pagalPavadinimaAZOptionLocator = "//*[@class='dropdown_option' and contains(text(),'Pagal')]";
         private static string dovanuCekiaiTextLocator = "//*[@class='concertslist_pages']//*[@class='event_short_title']";
@@ -15,16 +13,8 @@ namespace Framework.BilietaiPOM
         public static void Open()
         {
             Driver.OpenPage(url);
-        }
-
-        public static void WaitTheCookieTableAppears()
-        {
-            Common.WaitForElementToBeClickable(buttonLocator);
-        }
-
-        public static void ClickLeistiVisusSlapukusButton()
-        {
-            Common.ClickElement(leistiVisusSlapukusButtonLocator);
+            CommonBilietai.WaitTheCookieTableAppears();
+            CommonBilietai.ClickLeistiVisusSlapukusButton();
         }
 
         //GiftCardsSortingByName test methods

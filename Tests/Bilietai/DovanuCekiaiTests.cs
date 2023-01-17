@@ -11,8 +11,6 @@ namespace Tests.Bilietai
         public void Open()
         {
             DovanuCekiai.Open();
-            DovanuCekiai.WaitTheCookieTableAppears();
-            DovanuCekiai.ClickLeistiVisusSlapukusButton();
         }
 
         [Test]

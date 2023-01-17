@@ -5,8 +5,6 @@ namespace Framework.BilietaiPOM
     public class HomePage
     {
         private static string url = "https://www.bilietai.lt/lit/";
-        private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
-        private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string popUpBannerCloseLocator = "//*[@class='popupbanner_close']";
         private static string galleryLocator = "//*[@class='gallery_description']";
         
@@ -33,16 +31,11 @@ namespace Framework.BilietaiPOM
         public static void Open()
         {
             Driver.OpenPage(url);
-        }
-
-        public static void WaitTheCookieTableAppears()
-        {
-            Common.WaitForElementToBeClickable(buttonLocator);
-        }
-
-        public static void ClickLeistiVisusSlapukusButton()
-        {
-            Common.ClickElement(leistiVisusSlapukusButtonLocator);
+            CommonBilietai.WaitTheCookieTableAppears();
+            CommonBilietai.ClickLeistiVisusSlapukusButton();
+            WaitThePopUpBannerAppears();
+            ClickPopUpBannerCloseButton();
+            WaitTheGalleryAppears();
         }
 
         public static void WaitThePopUpBannerAppears()

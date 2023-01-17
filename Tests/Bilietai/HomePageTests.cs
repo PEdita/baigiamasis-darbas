@@ -10,11 +10,6 @@ namespace Tests.Bilietai
         public void Open()
         {
             HomePage.Open();
-            HomePage.WaitTheCookieTableAppears();
-            HomePage.ClickLeistiVisusSlapukusButton();
-            HomePage.WaitThePopUpBannerAppears();
-            HomePage.ClickPopUpBannerCloseButton();
-            HomePage.WaitTheGalleryAppears();
         }
 
         [Test]
