@@ -26,7 +26,7 @@ namespace Tests.Bilietai
             HomePage.ClickTheNextOneTinkaButton();
             HomePage.EnterValidEmail(email);
             HomePage.ClickApmoketiButton();
-            string actualResult = HomePage.GetTheAmauntOfTicketsInTheCart();
+            string actualResult = HomePage.GetTheAmountOfTicketsInTheCart();
 
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -36,9 +36,9 @@ namespace Tests.Bilietai
         {
             string expectedText = "Recommended";
 
-            HomePage.HoverTheMouseOverTheWordLietuviskai();
-            HomePage.ClickTheOptionInEnglish();
-            string actualText = HomePage.GetTheSelectedText();
+            HomePage.HoverOnLanguageDropdown();
+            HomePage.ClickEnglishOption();
+            string actualText = HomePage.GetSelectedText();
 
             Assert.AreEqual(expectedText, actualText);
         }
@@ -63,7 +63,7 @@ namespace Tests.Bilietai
 
             HomePage.EnterText(expectedWord);
 
-            List<string> actualWord = HomePage.GetResultsOfSearchWord();
+            List<string> actualWord = HomePage.GetSearchResults();
 
             foreach (string word in actualWord)
             {
