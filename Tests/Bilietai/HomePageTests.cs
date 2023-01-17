@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Tests
+namespace Tests.Bilietai
 {
     internal class HomePageTests : BaseTest
     {
