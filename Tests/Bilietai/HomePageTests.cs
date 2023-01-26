@@ -1,12 +1,8 @@
 ﻿using Framework.BilietaiPOM;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Tests
+namespace Tests.Bilietai
 {
     internal class HomePageTests : BaseTest
     {
@@ -14,11 +10,6 @@ namespace Tests
         public void Open()
         {
             HomePage.Open();
-            HomePage.WaitTheCookieTableAppears();
-            HomePage.ClickLeistiVisusSlapukusButton();
-            HomePage.WaitThePopUpBannerAppears();
-            HomePage.ClickPopUpBannerCloseButton();
-            HomePage.WaitTheGalleryAppears();
         }
 
         [Test]
@@ -35,7 +26,7 @@ namespace Tests
             HomePage.ClickTheNextOneTinkaButton();
             HomePage.EnterValidEmail(email);
             HomePage.ClickApmoketiButton();
-            string actualResult = HomePage.GetTheAmauntOfTicketsInTheCart();
+            string actualResult = HomePage.GetTheAmountOfTicketsInTheCart();
 
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -45,9 +36,9 @@ namespace Tests
         {
             string expectedText = "Recommended";
 
-            HomePage.HoverTheMouseOverTheWordLietuviskai();
-            HomePage.ClickTheOptionInEnglish();
-            string actualText = HomePage.GetTheSelectedText();
+            HomePage.HoverOnLanguageDropdown();
+            HomePage.ClickEnglishOption();
+            string actualText = HomePage.GetSelectedText();
 
             Assert.AreEqual(expectedText, actualText);
         }
@@ -72,7 +63,7 @@ namespace Tests
 
             HomePage.EnterText(expectedWord);
 
-            List<string> actualWord = HomePage.GetResultsOfSearchWord();
+            List<string> actualWord = HomePage.GetSearchResults();
 
             foreach (string word in actualWord)
             {

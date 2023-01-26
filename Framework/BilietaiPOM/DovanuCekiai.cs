@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Framework.BilietaiPOM
 {
     public class DovanuCekiai
     {
         private static string url = "https://www.bilietai.lt/lit/renginiai/dovanu-cekiai/";
-        private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
-        private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string dataPagalDidejimoTvarkaDropdownArrowLocator = "//*[@class='dropdown_arrow']";
         private static string pagalPavadinimaAZOptionLocator = "//*[@class='dropdown_option' and contains(text(),'Pagal')]";
         private static string dovanuCekiaiTextLocator = "//*[@class='concertslist_pages']//*[@class='event_short_title']";
@@ -20,16 +14,8 @@ namespace Framework.BilietaiPOM
         public static void Open()
         {
             Driver.OpenPage(url);
-        }
-
-        public static void WaitTheCookieTableAppears()
-        {
-            Common.WaitForElementToBeClickable(buttonLocator);
-        }
-
-        public static void ClickLeistiVisusSlapukusButton()
-        {
-            Common.ClickElement(leistiVisusSlapukusButtonLocator);
+            CommonBilietai.WaitTheCookieTableAppears();
+            CommonBilietai.ClickLeistiVisusSlapukusButton();
         }
 
         //GiftCardsSortingByName test methods
@@ -50,6 +36,20 @@ namespace Framework.BilietaiPOM
         {
             Common.WaitForElementToBeVisible(dovanuCekiaiTextLocator);
             return Common.GetElementsTextToList(dovanuCekiaiTextLocator);
+        }
+
+        public static bool CheckIfDovanuCekiaiListIsAlphabetical()
+        {
+            List<string> actualResult = GetDovanuCekiaiList();
+
+            for (int i = 1; i < actualResult.Count; i++)
+            {
+                if (String.Compare(actualResult[i - 1], actualResult[i]) > 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

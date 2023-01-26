@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Framework.BilietaiPOM
 {
     public class HomePage
     {
         private static string url = "https://www.bilietai.lt/lit/";
-        private static string buttonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
-        private static string leistiVisusSlapukusButtonLocator = "//*[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']";
         private static string popUpBannerCloseLocator = "//*[@class='popupbanner_close']";
         private static string galleryLocator = "//*[@class='gallery_description']";
         
@@ -38,16 +31,11 @@ namespace Framework.BilietaiPOM
         public static void Open()
         {
             Driver.OpenPage(url);
-        }
-
-        public static void WaitTheCookieTableAppears()
-        {
-            Common.WaitForElementToBeClickable(buttonLocator);
-        }
-
-        public static void ClickLeistiVisusSlapukusButton()
-        {
-            Common.ClickElement(leistiVisusSlapukusButtonLocator);
+            CommonBilietai.WaitTheCookieTableAppears();
+            CommonBilietai.ClickLeistiVisusSlapukusButton();
+            WaitThePopUpBannerAppears();
+            ClickPopUpBannerCloseButton();
+            WaitTheGalleryAppears();
         }
 
         public static void WaitThePopUpBannerAppears()
@@ -112,7 +100,7 @@ namespace Framework.BilietaiPOM
             Common.ClickElement(apmoketiButtonLocator);
         }
 
-        public static string GetTheAmauntOfTicketsInTheCart()
+        public static string GetTheAmountOfTicketsInTheCart()
         {
             Common.WaitForElementToBeVisible(elementTextLocator);
             return Common.GetElementText(elementTextLocator);
@@ -144,18 +132,18 @@ namespace Framework.BilietaiPOM
         }
 
         //ChangeTheLanguageToEnglish test methods
-        public static void HoverTheMouseOverTheWordLietuviskai()
+        public static void HoverOnLanguageDropdown()
         {
             Common.HoverTheMouseOverTheElement(elementLocator);
         }
 
-        public static void ClickTheOptionInEnglish()
+        public static void ClickEnglishOption()
         {
             Common.WaitForElementToBeVisible(elementLocator);
             Common.ClickElement(inEnglishOptionLocator);
         }
 
-        public static string GetTheSelectedText()
+        public static string GetSelectedText()
         {
             return Common.GetElementText(selectedTextLocator);
         }
@@ -166,7 +154,7 @@ namespace Framework.BilietaiPOM
             Common.SendKeysToElement("//*[@name='search']", expectedText);
         }
 
-        public static List<string> GetResultsOfSearchWord()
+        public static List<string> GetSearchResults()
         {
             return Common.GetElementsTextToList("//*[@class='searchresult_foundword']");
         }
